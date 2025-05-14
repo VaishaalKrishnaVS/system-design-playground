@@ -1,4 +1,4 @@
-package com.coffeepoweredcrew.prototype;
+package lld.creationaldesignpattern.prototype;
 
 //Doesn't support cloning
 public class General extends GameUnit{
@@ -12,5 +12,10 @@ public class General extends GameUnit{
 	@Override
 	public String toString() {
 		return "General "+state+" @ "+getPosition();
+	}
+
+	@Override
+	protected void reset() {
+		this.state= "idle";
 	}
 }

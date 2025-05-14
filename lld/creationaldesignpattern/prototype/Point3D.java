@@ -1,4 +1,4 @@
-package com.coffeepoweredcrew.prototype;
+package lld.creationaldesignpattern.prototype;
 
 public class Point3D {
 
@@ -16,7 +16,12 @@ public class Point3D {
 		float mag = magnitude();
 		return new Point3D(x/mag, y/mag, z/mag);
 	}
-	
+
+	@Override
+	public String toString() {
+		return x+""+y+""+z;
+	}
+
 	private float magnitude() {
 		return (float)Math.sqrt(x*x + y*y + z*z);
 	}

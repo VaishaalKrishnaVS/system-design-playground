@@ -1,13 +1,26 @@
-package com.coffeepoweredcrew.prototype;
+package lld.creationaldesignpattern.prototype;
 
 
 /**
  * This class represents an abstract prototype & defines the clone method
  */
-public abstract class GameUnit {
+public abstract class GameUnit implements Cloneable {
 	
 	private Point3D position;
-	
+
+	@Override
+	protected GameUnit clone() throws CloneNotSupportedException {
+		var gameUnit =(GameUnit) super.clone();
+		initialise(gameUnit);
+		return gameUnit;
+	}
+
+	private void initialise(GameUnit gameUnit){
+		gameUnit.position = Point3D.ZERO;
+		reset();
+	}
+	protected abstract void reset();
+
 	public GameUnit() {
 		position = Point3D.ZERO;
 	}
